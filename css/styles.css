@@ -64,6 +64,10 @@ button {
   cursor: pointer;
 }
 
+img {
+  display: block;
+}
+
 .list {
   padding: 0;
   margin: 0;
