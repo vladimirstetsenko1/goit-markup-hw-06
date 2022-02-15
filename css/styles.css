@@ -17,6 +17,7 @@ a {
   --secondory-text-color: #757575;
   --text-title-color: #ffffff;
   --accent-color: #2196f3;
+  --accent-shadow color: rgba(0, 0, 0, 0.15);
   --primary-bg-color: #ffffff;
   --secondary-bg-color: #f5f4fa;
   --top-line-bg-color: #ececec;
@@ -31,6 +32,7 @@ a {
   --overlay-modal-color: rgba(0, 0, 0, 0.2);
   --project-bg-color: rgba(33, 150, 243, 0.9);
   --close-icon-color: #000000;
+
 }
 
 .page {
@@ -265,6 +267,7 @@ img {
   color: var(--text-title-color);
   background-color: var(--accent-color);
   cursor: pointer;
+  box-shadow: 0px 4px 4px var(--accent-shadow);
 }
 
 /* Особенности */
@@ -803,8 +806,8 @@ img {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: var(--overlay-modal-color);
 
   opacity: 1;
@@ -826,7 +829,7 @@ img {
   left: 50%;
   min-height: 581px;
   min-width: 528px;
-  padding: 8px;
+  padding: 40px;
   border-radius: 4px;
   background-color: var(--primary-bg-color);
 
@@ -834,13 +837,70 @@ img {
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.button-modal {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 1.85;
+  padding: 10px 55px 10px 56px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  border-radius: 4px;
+  border: transparent;
+  letter-spacing: 0.06em;
+  color: var(--text-title-color);
+  background-color: var(--accent-color);
+  margin-left: 130px;
+}
+
 .close-link {
   position: absolute;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  top: 8px;
+  right: 8px;
+  border-radius: 50%;
+  fill: var(--close-icon-color);
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.close-icon {
   width: 18px;
   height: 18px;
-  margin-left: 490px;
-  fill: var(--close-icon-color);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 50%;
+}
+
+.modal-title {
+  margin-bottom: 12px;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: #212121;
+}
+
+.modal-field {
+  margin-bottom: 10px;
+}
+.modal-label {
+  font-weight: normal;
+font-size: 12px;
+line-height: 1.67;
+letter-spacing: 0.01em;
+color: #757575;
+}
+
+.modal-input {
+  width: 100%;
+  height: 45px;
+  border-radius: 5px;
+  border: 1px solid #999999;
+  background-color: transparent;
+  margin-bottom: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
