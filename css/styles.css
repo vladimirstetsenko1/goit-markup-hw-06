@@ -17,7 +17,7 @@ a {
   --secondory-text-color: #757575;
   --text-title-color: #ffffff;
   --accent-color: #2196f3;
-  --accent-shadow color: rgba(0, 0, 0, 0.15);
+  --accent-shadow-color: rgba(0, 0, 0, 0.15);
   --primary-bg-color: #ffffff;
   --secondary-bg-color: #f5f4fa;
   --top-line-bg-color: #ececec;
@@ -32,7 +32,6 @@ a {
   --overlay-modal-color: rgba(0, 0, 0, 0.2);
   --project-bg-color: rgba(33, 150, 243, 0.9);
   --close-icon-color: #000000;
-
 }
 
 .page {
@@ -76,6 +75,18 @@ img {
   list-style: none;
 }
 
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
 /* CSS для imdex.html */
 
 /* Шапка сайта */
@@ -608,9 +619,11 @@ img {
 .aside {
   display: block;
   padding-top: 12px;
+  margin-right: 93px;
 }
 
-.aside-title {
+.aside-title,
+.middle-title {
   font-weight: bold;
   font-size: 14px;
   line-height: 16px;
@@ -657,6 +670,72 @@ img {
   fill: var(--secondary-social-color);
 }
 
+.middle-title {
+  padding-top: 12px;
+  margin-bottom: 20px;
+}
+
+.button-middle {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 10px 62px 10px 29px;
+}
+
+.button-middle {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 1.85;
+  border-radius: 4px;
+  border: transparent;
+  letter-spacing: 0.06em;
+  color: var(--text-title-color);
+  background-color: var(--accent-color);
+  position: relative;
+  width: 200px;
+  height: 50px;
+  margin-right: 10px;
+  box-sizing: border-box;
+}
+
+.middle-field {
+  display: flex;
+}
+
+.middle-submit {
+  position: relative;
+}
+
+.middle-icon {
+  position: absolute;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.middle-input {
+  font-size: 16px;
+  line-height: 20px;
+  width: 358px;
+  height: 50px;
+  margin-right: 12px;
+  padding-left: 16px;
+  border-radius: 5px;
+  outline: none;
+  letter-spacing: 0.03em;
+  color: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-sizing: border-box;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+  background-color: transparent;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1) border 250ms
+    cubic-bezier(0.4, 0, 0.2, 1) filter 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 /* CSS для portfolio.html */
 
 /* Кнопки */
@@ -701,8 +780,8 @@ img {
   text-align: center;
   letter-spacing: 0.03em;
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1) background-color 250ms
+    cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button.primery {
@@ -775,6 +854,7 @@ img {
   background-color: var(--background-social-color);
   height: 294px;
   transform: translateY(100%);
+
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   overflow: auto;
 }
@@ -866,11 +946,17 @@ img {
   fill: var(--close-icon-color);
   background-color: transparent;
   border: 1px solid rgba(0, 0, 0, 0.1);
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .close-icon {
   width: 18px;
   height: 18px;
+}
+
+.close-link:focus .close-icon {
+  fill: var(--accent-color);
 }
 
 .modal-title {
@@ -886,21 +972,105 @@ img {
 .modal-field {
   margin-bottom: 10px;
 }
+
 .modal-label {
   font-weight: normal;
-font-size: 12px;
-line-height: 1.67;
-letter-spacing: 0.01em;
-color: #757575;
+  font-size: 12px;
+  line-height: 1.67;
+  letter-spacing: 0.01em;
+  color: #757575;
 }
 
-.modal-input {
+.input-wrapper {
+  position: relative;
+}
+
+.modal-input:focus {
+  border-color: var(--accent-color);
+}
+
+.modal-input:focus + .modal-icon {
+  fill: var(--accent-color);
+}
+
+.modal-input,
+.modal-text {
   width: 100%;
-  height: 45px;
+  height: 40px;
   border-radius: 5px;
-  border: 1px solid #999999;
+  outline: none;
+  border: 1px solid rgba(33, 33, 33, 0.2);
   background-color: transparent;
-  margin-bottom: 30px;
-  padding-left: 20px;
+  padding-left: 42px;
   padding-right: 20px;
+
+  transition: border color 250ms cubic-bezier(0.4, 0, 0.2, 1) fill 250ms
+    cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-text {
+  height: 100px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  resize: none;
+}
+
+.modal-icon {
+  position: absolute;
+  left: 15px;
+  top: 20px;
+  transform: translateY(-50%);
+}
+
+.modal-check-text {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  margin-bottom: 20px;
+  color: #757575;
+}
+
+.check-icon {
+  position: absolute;
+  fill: transparent;
+}
+
+.policy {
+  margin-bottom: 40px;
+}
+
+.modal-check-text {
+  padding-left: 20px;
+}
+
+.modal-check-text span {
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  width: 15px;
+  height: 15px;
+  border: 2px solid #303030;
+  border-radius: 2px;
+  margin-right: 5px;
+
+  display: inline-flex;
+  align-items: centcenter;
+  justify-content: center;
+  color: #757575;
+}
+
+.check-policy {
+  text-decoration: underline;
+  color: var(--accent-color);
+}
+
+.modal-check:checked + .modal-check-text span {
+  background-color: var(--accent-color);
+  border: none;
+}
+
+.modal-check:checked + .modal-check-text svg {
+  fill: #ffffff;
 }
